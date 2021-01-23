@@ -6,8 +6,3 @@ def dynaport(name, location):
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
-
-
-if __name__ == "__main__":
-    test = dynaport("test", "/home/naek/projects/test_dir/test.py")
-    test.my_func("hello")
