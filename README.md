@@ -16,7 +16,7 @@ my_other_module.my_func()
 
 # config file
 
-Dyanport is able to use a json configuration file to define filepaths to modules you want to import.
+Dynaport is able to use a json configuration file to define filepaths to modules you want to import.
 
 The current format of the configuration file is as follows:
 
