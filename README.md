@@ -10,9 +10,9 @@ Dynaport serves as a python module that will enable you to dynamically import mo
 
 `Dynaport(config="/path/to/config.json")`
 
-- instantiaton of the Dynaport class, has an optional parameter `config` to load a config file.
+- instantiation of the Dynaport class, has an optional parameter `config` to load a config file.
 
-`Dynaport.get_module(name="module_name", path="/path/to/module.py"`
+`Dynaport.get_module(name="module_name", path="/path/to/module.py")`
 
 - loads and returns the module
 
@@ -40,4 +40,3 @@ The current format of the configuration file is as follows:
 - expand on the ability to define configuration files to quickly import modules
 - allow paths with environment variables to be passed into the program
 - creating compatible versions for both python2 and python3
-- uploading the package to pip for easier access to its functionality
