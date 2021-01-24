@@ -1,5 +1,10 @@
-import importlib.util
+import sys
 import json
+
+if sys.version_info[0] >= 3:
+    from util.get_module3 import _get_module
+else:
+    from util.get_module2 import _get_module
 
 
 class Dynaport:
@@ -10,10 +15,12 @@ class Dynaport:
                 self.config = json.load(f)
 
     def _get_module(self, name, path):
-        spec = importlib.util.spec_from_file_location(name, path)
-        module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(module)
+        module = _get_module(name, path)
+
         return module
+
+    def get_config(self, **options):
+        return self.config
 
     def get_module(self, **options):
         if not options.get("name") and not options.get("path") and not self.config:
@@ -48,6 +55,3 @@ class Dynaport:
             )
 
         return tuple(module_list)
-
-    def get_config(self, **options):
-        return self.config
