@@ -6,18 +6,17 @@ Dynaport serves as a python module that will enable you to dynamically import mo
 
 `pip3 install dynaport`
 
-# basic usage
+# functions
 
-```python
-from dynaport.dynaport import Dynaport
-dp = Dynaport()
-my_module = dp.get_module(name="module_name", location="/path/to/module.py")
-my_module.my_func()
+`Dynaport(config="/path/to/config.json")`
+    - instantiaton of the Dynaport class, has an optional parameter `config` to load a config file.
 
-dp_config = Dynaport("my_config.json")
-my_other_module = dp_config.get_module(name="module_name") # path is retrieved from the config file
-my_other_module.my_func()
-```
+`Dynaport.get_module(name="module_name", path="/path/to/module.py"`
+    - loads and returns the module
+
+`Dynaport.get_modules(modules=["module1", "module2", "module3"], dict=True)`
+    - loads and returns multiple modules as a tuple, optional `dict` param to load the modules into a dict.
+    - NOTE: module names need to be unique or else they will be overwritten when creating the dict
 
 # config file
 
