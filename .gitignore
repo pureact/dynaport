@@ -1,0 +1,4 @@
+build/
+dist/
+dynaport.egg-info/
+dynaport/config.json
