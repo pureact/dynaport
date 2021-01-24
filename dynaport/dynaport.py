@@ -14,28 +14,26 @@ else:
 class Dynaport:
     def __init__(self, **options):
         self.config = options.get("config", False)
-        if self.config:
-            self.set_config(config=self.config)
+        self.set_config(config=self.config)
+
+    def _get_path(self, path):
+        return os.path.expandvars(path)
 
     def _get_module(self, name, path):
-        module = _get_module(name, path)
-
+        module = _get_module(name, self._get_path(path))
         return module
 
     def get_config(self, **options):
         return self.config
 
     def set_config(self, **options):
-        config = options.get("config", False)
+        if options.get("config", False) is False:
+            return False
 
-        if not config:
-            return
-
-        if isinstance(config, dict):
+        if isinstance(options.get("config"), dict):
             self.config = config
         else:
-            config = os.path.expandvars(config)
-            with open(config, "r") as f:
+            with open(self._get_path(options.get("config")), "r") as f:
                 self.config = json.load(f)
 
     def get_module(self, **options):
@@ -43,13 +41,10 @@ class Dynaport:
             raise AttributeError
 
         if options.get("name") and options.get("path"):
-            return self._get_module(
-                options.get("name"), os.path.expandvars(options.get("path"))
-            )
+            return self._get_module(options.get("name"), options.get("path"))
 
         return self._get_module(
-            options.get("name"),
-            os.path.expandvars(self.config.get("modules", {}).get(options.get("name"))),
+            options.get("name"), self.config.get("modules", {}).get(options.get("name"))
         )
 
     def get_modules(self, **options):
