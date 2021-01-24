@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="dynaport",
-    version="0.0.4",
+    version="0.0.5",
     author="naek",
     author_email="naek2k@outlook.com",
     description="dynamic module importer",
@@ -14,9 +14,9 @@ setuptools.setup(
     url="https://github.com/naek2k/dynaport",
     packages=setuptools.find_packages(),
     classifiers=[
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python",
         "License :: OSI Approved :: Apache Software License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.5",
+    python_requires=">=2",
 )

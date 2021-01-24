@@ -3,4 +3,5 @@ dist/
 dynaport.egg-info/
 dynaport/config.json
 update_pypi.sh
+clean_dir.sh
 *.pyc

@@ -50,3 +50,4 @@ The current format of the configuration file is as follows:
 ## future work
 
 - allow paths with environment variables to be passed into the program
+- add support for yaml files (but not require the dependency to be installed)
