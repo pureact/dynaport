@@ -9,14 +9,17 @@ Dynaport serves as a python module that will enable you to dynamically import mo
 # functions
 
 `Dynaport(config="/path/to/config.json")`
-    - instantiaton of the Dynaport class, has an optional parameter `config` to load a config file.
+
+- instantiaton of the Dynaport class, has an optional parameter `config` to load a config file.
 
 `Dynaport.get_module(name="module_name", path="/path/to/module.py"`
-    - loads and returns the module
+
+- loads and returns the module
 
 `Dynaport.get_modules(modules=["module1", "module2", "module3"], dict=True)`
-    - loads and returns multiple modules as a tuple, optional `dict` param to load the modules into a dict.
-    - NOTE: module names need to be unique or else they will be overwritten when creating the dict
+
+- loads and returns multiple modules as a tuple, optional `dict` param to load the modules into a dict.
+- NOTE: module names need to be unique or else they will be overwritten when creating the dict
 
 # config file
 
