@@ -1,5 +1,6 @@
 import sys
 import json
+import os
 
 if sys.version_info[0] >= 3:
     if sys.version_info[1] == 3 or sys.version_info[1] == 4:
@@ -33,6 +34,7 @@ class Dynaport:
         if isinstance(config, dict):
             self.config = config
         else:
+            config = os.path.expandvars(config)
             with open(config, "r") as f:
                 self.config = json.load(f)
 
@@ -41,10 +43,13 @@ class Dynaport:
             raise AttributeError
 
         if options.get("name") and options.get("path"):
-            return self._get_module(options.get("name"), options.get("path"))
+            return self._get_module(
+                options.get("name"), os.path.expandvars(options.get("path"))
+            )
 
         return self._get_module(
-            options.get("name"), self.config.get("modules", {}).get(options.get("name"))
+            options.get("name"),
+            os.path.expandvars(self.config.get("modules", {}).get(options.get("name"))),
         )
 
     def get_modules(self, **options):

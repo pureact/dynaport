@@ -47,7 +47,10 @@ The current format of the configuration file is as follows:
 }
 ```
 
+## features
+
+- all paths can have environment variables put in the path names. Windows can have %name% and Linux can have $name
+
 ## future work
 
-- allow paths with environment variables to be passed into the program
 - add support for yaml files (but not require the dependency to be installed)
