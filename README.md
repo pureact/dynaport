@@ -6,6 +6,10 @@ Dynaport serves as a python module that will enable you to dynamically import mo
 
 `pip3 install dynaport`
 
+# importing
+
+`from dynaport.dynaport import Dynaport`
+
 # functions
 
 `Dynaport(config="/path/to/config.json")`
