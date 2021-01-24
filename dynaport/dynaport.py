@@ -48,3 +48,6 @@ class Dynaport:
             )
 
         return tuple(module_list)
+
+    def get_config(self, **options):
+        return self.config
