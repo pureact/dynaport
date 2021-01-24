@@ -1,6 +1,6 @@
 # dynaport
 
-Dynaport serves as a python module that will enable you to dynamically import modules from anywhere on the filesystem. This module acts as a wrapper of the python import library to offer an easy to use syntax for dynamically importing modules in python.
+Dynaport serves as a python module that will enable you to dynamically import modules from anywhere on the filesystem. This module acts as a wrapper of the python import library to offer an easy to use syntax for dynamically importing modules in python. Dynaport is able to support Python2, Python3.3, Python3.4, and Python3.5+ automatically.
 
 # installation
 
@@ -14,7 +14,7 @@ Dynaport serves as a python module that will enable you to dynamically import mo
 
 `Dynaport(config="/path/to/config.json")`
 
-- instantiation of the Dynaport class, has an optional parameter `config` to load a config file.
+- instantiation of the Dynaport class, has an optional parameter `config` to load a config file. The config parameter can also take a dict as input. Needs to follow the same structure as the config file.
 
 `Dynaport.get_module(name="module_name", path="/path/to/module.py")`
 
@@ -24,6 +24,14 @@ Dynaport serves as a python module that will enable you to dynamically import mo
 
 - loads and returns multiple modules as a tuple, optional `dict` param to load the modules into a dict.
 - NOTE: module names need to be unique or else they will be overwritten when creating the dict
+
+`Dynaport.get_config()`
+
+- returns the loaded config file
+
+`Dynaport.set_config(config=/path/to/config.json")`
+
+- same behavior as loading a config on instantiation
 
 # config file
 
@@ -41,6 +49,4 @@ The current format of the configuration file is as follows:
 
 ## future work
 
-- expand on the ability to define configuration files to quickly import modules
 - allow paths with environment variables to be passed into the program
-- creating compatible versions for both python2 and python3
