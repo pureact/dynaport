@@ -4,11 +4,31 @@ import os
 
 if sys.version_info[0] >= 3:
     if sys.version_info[1] == 3 or sys.version_info[1] == 4:
-        from util.get_module3334 import _get_module
+        from importlib.machinery import SourceFileLoader
+
+        def _get_module(name, location):
+            module = SourceFileLoader(name, location).load_module()
+
+            return module
+
     else:
-        from util.get_module35 import _get_module
+        import importlib.util
+
+        def _get_module(name, path):
+            spec = importlib.util.spec_from_file_location(name, path)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+
+            return module
+
+
 else:
-    from util.get_module2 import _get_module
+    import imp
+
+    def _get_module(name, location):
+        module = imp.load_source(name, location)
+
+        return module
 
 
 class Dynaport:
