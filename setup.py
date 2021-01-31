@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="dynaport",
-    version="0.0.9",
+    version="0.0.10",
     author="naek",
     author_email="naek2k@outlook.com",
     description="dynamic module importer",
