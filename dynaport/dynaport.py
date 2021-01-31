@@ -51,7 +51,7 @@ class Dynaport:
             return False
 
         if isinstance(options.get("config"), dict):
-            self.config = config
+            self.config = options.get("config")
         else:
             with open(self._get_path(options.get("config")), "r") as f:
                 self.config = json.load(f)
